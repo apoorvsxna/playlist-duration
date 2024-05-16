@@ -76,22 +76,54 @@ function fetchPlaylistData() {
             })
             .then(([videoDetails, data]) => {
                 const durations = data.items.map(item => item.contentDetails.duration);
-                const videosWithDurations = videoDetails.map((details, index) => [...details, durations[index]]);
-                
+                const videosWithDurations = videoDetails.map((details, index) => {
+                    const durationInSeconds = iso8601DurationToSeconds(durations[index]);
+                    const timeObj = secondsToTime(durationInSeconds);
+                    return [...details, `${timeObj.h}h ${timeObj.m}m ${timeObj.s}s`];
+                });
+
+                console.log(videosWithDurations); // Log object for debugging
+
                 let totalSeconds = 0;
                 videosWithDurations.forEach(element => {
                     const duration = element[2];
-                    try {
-                        const seconds = iso8601DurationToSeconds(duration);
-                        totalSeconds += seconds;
-                    } catch (error) {
-                        console.error('Error converting duration:', error);
+                    const matches = duration.match(/(\d+)h (\d+)m (\d+)s/);
+                    if (matches) {
+                        const hours = parseInt(matches[1]);
+                        const minutes = parseInt(matches[2]);
+                        const seconds = parseInt(matches[3]);
+                        totalSeconds += hours * 3600 + minutes * 60 + seconds;
                     }
                 });
 
                 const timeObj = secondsToTime(totalSeconds);
                 const totalDurationElement = document.getElementById('totalDuration');
                 totalDurationElement.textContent = `Total Duration: ${timeObj.h} hours, ${timeObj.m} minutes, ${timeObj.s} seconds`;
+
+                // Add video details
+                const tableBody = document.getElementById('videoDetailsTable').querySelector('tbody');
+                tableBody.innerHTML = ''; // Clear existing table rows
+
+                videosWithDurations.forEach(video => {
+                    const row = document.createElement('tr');
+                    const thumbnailCell = document.createElement('td');
+                    const titleCell = document.createElement('td');
+                    const durationCell = document.createElement('td');
+
+                    const thumbnailImg = document.createElement('img');
+                    thumbnailImg.src = video[0];
+                    thumbnailImg.style.width = '120px';
+
+                    thumbnailCell.appendChild(thumbnailImg);
+                    titleCell.textContent = video[1];
+                    durationCell.textContent = video[2];
+
+                    row.appendChild(thumbnailCell);
+                    row.appendChild(titleCell);
+                    row.appendChild(durationCell);
+
+                    tableBody.appendChild(row);
+                });
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
