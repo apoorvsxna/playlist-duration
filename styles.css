@@ -85,6 +85,7 @@ button{
 
 button:hover{
     background-color: #007bff;
+    color: #f0f0f0;
     transition: 0.2s ease-in-out;
     cursor: pointer;
 }
@@ -92,4 +93,14 @@ button:hover{
 #totalDuration{
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+th{
+    font-weight: bold;
+}
+td{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-weight: 400;
 }
