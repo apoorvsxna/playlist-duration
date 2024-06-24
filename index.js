@@ -100,10 +100,27 @@ function fetchPlaylistData() {
                 const totalDurationElement = document.getElementById('totalDuration');
                 totalDurationElement.textContent = `Total Duration: ${timeObj.h} hours, ${timeObj.m} minutes, ${timeObj.s} seconds`;
 
-                // Add video details
-                const tableBody = document.getElementById('videoDetailsTable').querySelector('tbody');
-                tableBody.innerHTML = ''; // Clear existing table rows
+                // Create and add video details table
+                const tableContainer = document.getElementById('tableContainer');
+                tableContainer.innerHTML = ''; // Clear existing content
 
+                const table = document.createElement('table');
+                table.style.width = '100%';
+                table.style.marginTop = '20px';
+                table.style.borderCollapse = 'collapse';
+
+                const thead = document.createElement('thead');
+                const headerRow = document.createElement('tr');
+                const headers = ['', 'Title', 'Duration'];
+                headers.forEach(headerText => {
+                    const th = document.createElement('th');
+                    th.textContent = headerText;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                const tbody = document.createElement('tbody');
                 videosWithDurations.forEach(video => {
                     const row = document.createElement('tr');
                     const thumbnailCell = document.createElement('td');
@@ -122,8 +139,11 @@ function fetchPlaylistData() {
                     row.appendChild(titleCell);
                     row.appendChild(durationCell);
 
-                    tableBody.appendChild(row);
+                    tbody.appendChild(row);
                 });
+                table.appendChild(tbody);
+
+                tableContainer.appendChild(table);
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);

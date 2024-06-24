@@ -7,13 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>YouTube Playlist Length</title>
+    <title>RunTime</title>
     <script src="index.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-left">
-            <h1>YouTube Playlist Length</h1>
+            <h1>RunTime</h1>
         </div>
         <div class="navbar-right">
             <a href="https://github.com/apoorvsxna">GitHub</a>
@@ -28,18 +28,7 @@
             <button onclick="fetchPlaylistData()">Go</button>
         </div>
         <div id="totalDuration"></div> <!-- Empty div to display total duration -->
-        <table id="videoDetailsTable" style="width: 100%; margin-top: 20px; border-collapse: collapse;">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Duration</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Video details will be dynamically inserted here -->
-            </tbody>
-        </table>
+        <div id="tableContainer"></div> <!-- Placeholder for the table -->
     </div>
 </body>
 </html>
