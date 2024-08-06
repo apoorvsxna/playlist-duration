@@ -14,16 +14,19 @@ function getPlaylistId(url) {
 
 // Function to convert ISO8601 duration to seconds
 function iso8601DurationToSeconds(duration) {
-    const matches = duration.match(/PT(\d+)M(\d+)S/);
+    const matches = duration.match(/PT((\d+)H)?((\d+)M)?((\d+)S)?/);
+
     if (!matches) {
         throw new Error('Invalid duration format');
     }
 
-    const minutes = parseInt(matches[1]);
-    const seconds = parseInt(matches[2]);
+    const hours = parseInt(matches[2] || 0);
+    const minutes = parseInt(matches[4] || 0);
+    const seconds = parseInt(matches[6] || 0);
 
-    return minutes * 60 + seconds;
+    return (hours * 3600) + (minutes * 60) + seconds;
 }
+
 
 // Function to convert seconds to hours, minutes, seconds
 function secondsToTime(secs) {
