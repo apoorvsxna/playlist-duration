@@ -2,128 +2,128 @@ body {
     font-family: "Space Grotesk", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1e1e1e; /* Dark background */
-    color: #ffffff; /* Light text color */
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
 }
 
 .navbar {
-    border-style: solid;
-    border-radius: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     margin: 1.5rem 2.5rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2d2d2d; /* Dark navbar background */
-    padding: 20px 30px;
-    color: #ffffff;
 }
 
 .navbar-left h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .navbar-right a {
     text-decoration: none;
-    color: #ffffff;
-    margin-left: 20px;
-    font-size: 18px;
-    transition: 0.15s ease-in-out;
+    color: #e0e0e0;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 .navbar-right a:hover {
-    color: #007aff; /* macOS blue highlight */
-    transition: 0.15s ease-in-out;
+    color: #007aff;
 }
 
 .main-content {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 4rem auto;
     text-align: center;
+    padding: 0 1rem;
 }
 
 .main-content h2 {
-    font-size: 45px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    margin-left: 100px;
-    margin-right: 100px;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
 }
 
 .search-bar {
-    font-family: "Space Grotesk", sans-serif;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .search-bar input {
-    font-family: "Space Grotesk", sans-serif;
     width: 100%;
-    padding: 10px;
-    font-size: 18px;
-    border: 2px solid #ccc;
-    border-radius: 1.2rem;
-    box-sizing: border-box;
-    transition: 0.1s ease-in-out;
-    background-color: #ffffff; /* Dark input background */
-    color: #3c3c3c; /* Light input text */
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
+    transition: all 0.3s ease;
 }
 
 .search-bar input:focus {
     outline: none;
-    border-color: #007aff; /* macOS blue highlight */
-    transition: 0.1s ease-in-out;
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.3);
 }
 
 button {
-    margin: 20px;
-    height: 3rem;
-    width: 6rem;
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: bold;
-    border-radius: 1rem;
-    border-style: solid;
-    transition: 0.1s ease-in-out;
-    background-color: #2d2d2d; /* Dark button background */
-    color: #ffffff; /* Light button text */
-    border-color: #ffffff;
+    width: 5rem;
+    margin: 1.5rem 0;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    background-color: #007aff;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 button:hover {
-    border-color: #007aff; /* macOS blue highlight */
-    transition: 0.2s ease-in-out;
-    cursor: pointer;
-    background-color: #1d1d1d;
+    background-color: #0040DD;
+    transform: translateY(-2px);
 }
 
 #totalDuration {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 3rem;
-}
-
-th {
-    font-weight: bold;
-    color: #ffffff; /* Light table header text */
-}
-
-td {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font-weight: 400;
-    color: #ffffff; /* Light table text */
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #007aff;
 }
 
 table {
-    background-color: #2d2d2d; /* Dark table background */
-    border-radius: 1.2rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
     overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
-tr {
-    border-bottom: 1px solid #444; /* Subtle border between rows */
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    font-weight: 600;
+    color: #007aff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+td {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 img {
-    border-radius: 0.6rem; /* Rounded corners for thumbnails */
+    border-radius: 8px;
+    max-width: 120px;
+    height: auto;
 }
